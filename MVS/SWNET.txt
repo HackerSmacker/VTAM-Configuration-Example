@@ -1,0 +1,75 @@
+SWNET    VBUILD TYPE=SWNET,MAXDLUR=5,MAXNO=5,MAXGRP=5                   
+NT4SRVPU    PU ADDR=01,                                                -
+               CONNTYPE=APPN,                                          -
+               CPCP=NO,                                                -
+               CPNAME=NT4SRV,                                          -
+               DISCNT=NO,                                              -
+               DWACT=NO,                                               -
+               DYNLU=YES,                                              -
+               HPR=NO,                                                 -
+               IDBLK=05D,                                              -
+               IDNUM=00055,                                            -
+               ISTATUS=ACTIVE,                                         -
+               MAXDATA=1496,                                           -
+               MAXOUT=7,                                               -
+               MODETAB=ISTINCLM,                                       -
+               NETID=HSNET,                                            -
+               PACING=7,                                               -
+               PUTYPE=2,                                               -
+               SSCPFM=USSSCS,                                          -
+               VPACING=7                                                
+NT4SRVP   PATH GRPNM=ETHGRP,DIALNO=0004AA0004002204                     
+NT4001      LU LOCADDR=1,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS    
+NT4002      LU LOCADDR=2,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS    
+NT4003      LU LOCADDR=3,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS    
+NT4004      LU LOCADDR=4,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS    
+*                                                                       
+OS2SRVPU    PU ADDR=01,                                                -
+               CONNTYPE=APPN,                                          -
+               CPCP=YES,                                               -
+               CPNAME=OS2SERV,                                         -
+               DISCNT=NO,                                              -
+               DWACT=NO,                                               -
+               DYNLU=YES,                                              -
+               HPR=YES,                                                -
+               IDBLK=05D,                                              -
+               IDNUM=00050,                                            -
+               ISTATUS=ACTIVE,                                         -
+               MAXDATA=1417,                                           -
+               MODETAB=ISTINCLM,                                       -
+               NETID=HSNET,                                            -
+               PACING=7,                                               -
+               PUTYPE=2,                                               -
+               SSCPFM=USSSCS,                                          -
+               VPACING=7                                                
+OS2SRVP   PATH GRPNM=ETHGRP,DIALNO=000408002710ABAA                     
+OS2001      LU LOCADDR=1,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS    
+OS2002      LU LOCADDR=2,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS    
+OS2003      LU LOCADDR=3,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS    
+OS2004      LU LOCADDR=4,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS    
+*                                                                       
+WIN2KPU     PU ADDR=01,                                                -
+               CONNTYPE=APPN,                                          -
+               CPCP=NO,                                                -
+               CPNAME=WIN2000,                                         -
+               DISCNT=NO,                                              -
+               DWACT=NO,                                               -
+               DYNLU=YES,                                              -
+               HPR=NO,                                                 -
+               IDBLK=05D,                                              -
+               IDNUM=00051,                                            -
+               ISTATUS=ACTIVE,                                         -
+               MAXDATA=1496,                                           -
+               MAXOUT=7,                                               -
+               MODETAB=ISTINCLM,                                       -
+               NETID=HSNET,                                            -
+               PACING=7,                                               -
+               PUTYPE=2,                                               -
+               SSCPFM=USSSCS,                                          -
+               VPACING=7                                                
+WIN2KP    PATH GRPNM=ETHGRP,DIALNO=0004AA0004002204                     
+W2K001      LU LOCADDR=1,ISTATUS=ACTIVE,DLOGMOD=DYNAMICB,USSTAB=USSS    
+W2K002      LU LOCADDR=2,ISTATUS=ACTIVE,DLOGMOD=DYNAMICB,USSTAB=USSS    
+W2K003      LU LOCADDR=3,ISTATUS=ACTIVE,DLOGMOD=DYNAMICB,USSTAB=USSS    
+W2K004      LU LOCADDR=4,ISTATUS=ACTIVE,DLOGMOD=DYNAMICB,USSTAB=USSS    
+*                                                                       

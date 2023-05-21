@@ -1,0 +1,7 @@
+          VBUILD TYPE=CDRM                                              
+*                                                                       
+          NETWORK NETID=HSNET                                           
+OS390     CDRM SUBAREA=6,ELEMENT=1,                                    -
+               ISTATUS=ACTIVE,CDRDYN=YES,CDRSC=OPT                      
+VMESA     CDRM SUBAREA=1,ELEMENT=1,                                    -
+               ISTATUS=ACTIVE,CDRDYN=YES,CDRSC=OPT                      

@@ -1,0 +1,16 @@
+A0600 VBUILD TYPE=APPL                APPLICATION MAJOR NODE            
+A06CICS  APPL  EAS=160,                ESTIMATED CONCURRENT SESSIONS   *
+               ACBNAME=CICS,           APPLID FOR ACB                  *
+               AUTH=(ACQ,BLOCK,PASS)   CICS CAN ACQUIRE & PASS TMLS     
+IRLM1    APPL  AUTH=ACQ,DLOGMOD=IRLM,MODETAB=IMS61TAB                   
+JRLM2    APPL  AUTH=ACQ,DLOGMOD=IRLM,MODETAB=IMS61TAB                   
+IMS3270  APPL  AUTH=(PASS,ACQ,SPO),DLOGMOD=IMS,MODETAB=IMS61TAB,       X
+               PARSESS=YES,HAVAIL=YES,ACBNAME=IMS61CR1                  
+TSOIMS   APPL  AUTH=(NOBLOCK,PASS,NOACQ,NOPO,TSO,NVPACE),EAS=1,        X
+               MODETAB=IMSMODTB                                         
+A06ECO1  APPL  EAS=1,                  ESTIMATED CONCURRENT SESSIONS   *
+               ACBNAME=ECO1,           APPLID FOR ACB                  *
+               AUTH=(ACQ)              ECHO1 CAN    ACQUIRE TERMINALS   
+A06TSO   APPL  AUTH=(NOACQ,NOBLOCK,PASS,NOTCAM,NVPACE,TSO,NOPO),       X
+               EAS=1,ACBNAME=TSO                                        
+A06DSPRT APPL  AUTH=(ACQ),ACBNAME=DSPRT                                 

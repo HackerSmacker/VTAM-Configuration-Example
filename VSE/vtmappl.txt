@@ -1,0 +1,8 @@
+VTMAPPL  VBUILD TYPE=APPL                                             
+DBDCCICS APPL  AUTH=(PASS,ACQ),MODETAB=IESINCLM,PARSESS=YES           
+PRODCICS APPL  AUTH=(PASS,ACQ),MODETAB=IESINCLM,PARSESS=YES           
+OLDCICS  APPL  AUTH=(PASS,ACQ),MODETAB=IESINCLM,PARSESS=YES           
+POWER    APPL  AUTH=(ACQ)                                             
+PNET     APPL  AUTH=(PASS,ACQ),VPACING=3,MODETAB=VTMLOGTB,DLOGMOD=PNET
+PSFAPPL  APPL  AUTH=ACQ,EAS=1,SONSCIP=YES                             
+IESWAITT APPL  AUTH=(NOACQ)                                           

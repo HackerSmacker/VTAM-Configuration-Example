@@ -1,0 +1,27 @@
+**********************************************************************  
+**> PASS-THROUGH 2.1 VTAMLST FOR PVMG COMPONENT                    <**  
+**********************************************************************  
+VTMPVMG  VBUILD TYPE=APPL                                               
+*                                                                       
+VSEESAPV APPL  ACBNAME=VSEESAPV,AUTH=(PASS,NVPACE),                    X
+               MODETAB=ISTINCLM,PARSESS=YES,SONSCIP=YES,VPACING=0       
+VSEESAPL APPL  ACBNAME=VSEESAPL,AUTH=(PASS,NVPACE),                    X
+               MODETAB=ISTINCLM,PARSESS=YES,SONSCIP=YES,VPACING=0       
+VSEESAP1 APPL  ACBNAME=VSEESAP1,AUTH=(PASS,NVPACE),EAS=1,              X
+               MODETAB=ISTINCLM,VPACING=0                               
+VSEESAP2 APPL  ACBNAME=VSEESAP2,AUTH=(PASS,NVPACE),EAS=1,              X
+               MODETAB=ISTINCLM,VPACING=0                               
+VSEESAP3 APPL  ACBNAME=VSEESAP3,AUTH=(PASS,NVPACE),EAS=1,              X
+               MODETAB=ISTINCLM,VPACING=0                               
+VSEESAP4 APPL  ACBNAME=VSEESAP4,AUTH=(PASS,NVPACE),EAS=1,              X
+               MODETAB=ISTINCLM,VPACING=0                               
+VSEESAP5 APPL  ACBNAME=VSEESAP5,AUTH=(PASS,NVPACE),EAS=1,              X
+               MODETAB=ISTINCLM,VPACING=0                               
+VSEESAP6 APPL  ACBNAME=VSEESAP6,AUTH=(PASS,NVPACE),EAS=1,              X
+               MODETAB=ISTINCLM,VPACING=0                               
+VSEESAP7 APPL  ACBNAME=VSEESAP7,AUTH=(PASS,NVPACE),EAS=1,              X
+               MODETAB=ISTINCLM,VPACING=0                               
+VSEESAP8 APPL  ACBNAME=VSEESAP8,AUTH=(PASS,NVPACE),EAS=1,              X
+               MODETAB=ISTINCLM,VPACING=0                               
+VSEESAP9 APPL  ACBNAME=VSEESAP9,AUTH=(PASS,NVPACE),EAS=1,              X
+               MODETAB=ISTINCLM,VPACING=0                               

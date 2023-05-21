@@ -1,0 +1,23 @@
+SSCPID=12,                                                             *
+SSCPNAME=VSEESA,                                                       *
+NETID=HSNET,                                                           *
+HOSTSA=12,                                                             *
+HOSTPU=VSEEA$PU,                                                       *
+NODETYPE=NN,                                                           *
+CONNTYPE=APPN,                                                         *
+CPCP=YES,                                                              *
+SSCPDYN=YES,                                                           *
+DYNASSCP=YES,                                                          *
+MAXSUBA=255,                                                           *
+CONFIG=00,                                                             *
+NOPROMPT,                                                              *
+IOINT=0,                                                               *
+SGALIMIT=0,                                                            *
+BSBUF=(28,,,,1),                                                       *
+CRPLBUF=(60,,,,1),                                                     *
+LFBUF=(70,,,,11),                                                      *
+IOBUF=(70,288,,,11),                                                   *
+LPBUF=(12,,,,6),                                                       *
+SFBUF=(20,,,,20),                                                      *
+SPBUF=(210,,,,32),                                                     *
+XDBUF=(6,,,,1)                                                          

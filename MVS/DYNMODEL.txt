@@ -1,0 +1,10 @@
+MODEL   VBUILD TYPE=MODEL                                               
+APPC        LU LOCADDR=2,PACING=0,VPACING=0,SSCPFM=USSSCS               
+BADXID      LU LOCADDR=2,PACING=0,VPACING=0,SSCPFM=USSSCS,             -
+               USSTAB=USSX,DLOGMOD=DYNAMIC                              
+DISPLAY     LU LOCADDR=2,PACING=0,VPACING=0,SSCPFM=USSSCS,             -
+               USSTAB=USSS,DLOGMOD=DYNAMIC                              
+PRINTER     LU LOCADDR=2,PACING=0,VPACING=0,SSCPFM=USSSCS,             -
+               DLOGMOD=P1Q                                              
+PC          PU ADDR=C1,ANS=CONT,DISCNT=NO,IRETRY=YES,                  -
+               MAXDATA=1456,MAXOUT=7,PASSLIM=7,PUTYPE=2                 

@@ -1,0 +1,10 @@
+         VTMAPPL,                                                      *
+         VTMSNA,                                                       *
+         VTMNSNA,                                                      *
+         VTMCTCA,                                                      *
+         VTMPATH,                                                      *
+         VTMCDRM,                                                      *
+         VTMCDRS,                                                      *
+         VTMSSCP,                                                      *
+         VTMADJ,                                                       *
+         VTMPVMG                                                        

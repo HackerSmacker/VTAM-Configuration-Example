@@ -1,0 +1,3 @@
+A0600,NSNA70X,DYNMODEL,A3270                           *
+A0TCP,P390APP,CTCA,CDRM,                               *
+PATH,ADJCP,ADJ,XCAETHNT,SWNET

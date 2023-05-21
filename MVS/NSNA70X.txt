@@ -1,0 +1,63 @@
+LCL70X  LBUILD                                                          
+LCL701   LOCAL TERM=3277,CUADDR=701,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL702   LOCAL TERM=3277,CUADDR=702,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL703   LOCAL TERM=3277,CUADDR=703,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL704   LOCAL TERM=3277,CUADDR=704,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL705   LOCAL TERM=3277,CUADDR=705,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL706   LOCAL TERM=3277,CUADDR=706,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL707   LOCAL TERM=3277,CUADDR=707,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL708   LOCAL TERM=3277,CUADDR=708,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL709   LOCAL TERM=3277,CUADDR=709,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL70A   LOCAL TERM=3277,CUADDR=70A,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL70B   LOCAL TERM=3277,CUADDR=70B,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL70C   LOCAL TERM=3277,CUADDR=70C,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL70D   LOCAL TERM=3277,CUADDR=70D,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL70E   LOCAL TERM=3277,CUADDR=70E,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL70F   LOCAL TERM=3277,CUADDR=70F,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL710   LOCAL TERM=3277,CUADDR=710,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL711   LOCAL TERM=3277,CUADDR=711,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL712   LOCAL TERM=3277,CUADDR=712,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL713   LOCAL TERM=3277,CUADDR=713,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL714   LOCAL TERM=3277,CUADDR=714,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL715   LOCAL TERM=3277,CUADDR=715,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL716   LOCAL TERM=3277,CUADDR=716,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL717   LOCAL TERM=3277,CUADDR=717,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL718   LOCAL TERM=3277,CUADDR=718,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL719   LOCAL TERM=3277,CUADDR=719,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL71A   LOCAL TERM=3277,CUADDR=71A,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL71B   LOCAL TERM=3277,CUADDR=71B,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL71C   LOCAL TERM=3277,CUADDR=71C,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL71D   LOCAL TERM=3277,CUADDR=71D,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL71E   LOCAL TERM=3277,CUADDR=71E,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             
+LCL71F   LOCAL TERM=3277,CUADDR=71F,FEATUR2=(EDATS,MODEL2),            -
+               USSTAB=USSN,DLOGMOD=DYNAMICB                             

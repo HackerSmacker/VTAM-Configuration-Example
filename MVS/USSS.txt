@@ -1,0 +1,69 @@
+         SPACE                                                          
+USSS     TITLE 'ACF/VTAM USS TABLE FOR SNA DEVICES'                     
+         SPACE                                                          
+         PRINT NOGEN                                                    
+         SPACE                                                          
+USSS     USSTAB   FORMAT=DYNAMIC                                        
+         SPACE                                                          
+L        USSCMD   CMD=L,REP=LOGON,FORMAT=BAL                            
+         USSPARM  PARM=P1,REP=DATA                                      
+         USSPARM  PARM=LOGMODE                                          
+         USSPARM  PARM=APPLID,DEFAULT=VM                                
+         SPACE                                                          
+VMESA    USSCMD   CMD=VMESA,REP=LOGON,FORMAT=BAL                        
+         USSPARM  PARM=P1,REP=DATA                                      
+         USSPARM  PARM=LOGMODE                                          
+         USSPARM  PARM=APPLID,DEFAULT=VMESAVSC                          
+         SPACE                                                          
+TSO      USSCMD   CMD=TSO,REP=LOGON,FORMAT=BAL                          
+         USSPARM  PARM=P1,REP=DATA                                      
+         USSPARM  PARM=LOGMODE                                          
+         USSPARM  PARM=APPLID,DEFAULT=A06TSO                            
+         SPACE                                                          
+CICS     USSCMD   CMD=CICS,REP=LOGON,FORMAT=BAL                         
+         USSPARM  PARM=P1,REP=DATA                                      
+         USSPARM  PARM=LOGMODE                                          
+         USSPARM  PARM=APPLID,DEFAULT=A06CICS                           
+         SPACE                                                          
+IMS3270  USSCMD   CMD=IMS3270,REP=LOGON,FORMAT=BAL                      
+         USSPARM  PARM=P1,REP=DATA                                      
+         USSPARM  PARM=LOGMODE                                          
+         USSPARM  PARM=APPLID,DEFAULT=A06IMS                            
+         SPACE                                                          
+PVM      USSCMD   CMD=PVM,REP=LOGON,FORMAT=BAL                          
+         USSPARM  PARM=P1,REP=DATA                                      
+         USSPARM  PARM=LOGMODE                                          
+         USSPARM  PARM=APPLID,DEFAULT=VMESAPVM                          
+         EJECT                                                          
+USSMSG10 USSMSG   MSG=10,BUFFER=(BUF010,SCAN)                           
+         EJECT                                                          
+BUF010   DS    0H                                                       
+         DC    AL2(END010-BUF010)                                       
+         DC    C'Welcome to HSnet                       '               
+         DC    C'       Your terminal: @@@@@@@@@@@@@@NQN'               
+         DC    X'1515'                                                  
+         DC    C'                                       '               
+         DC    C'            It is now @@@@DATE @@@@TIME'               
+         DC    X'151515'                                                
+         DC    C' Enter one of the following system name'               
+         DC    C's:                                     '               
+         DC    X'15'                                                    
+         DC    C'    TSO - OS/390 2.10 TSO, on this syst'               
+         DC    C'em                                     '               
+         DC    X'15'                                                    
+         DC    C'    CICS - CICS/ESA on this system     '               
+         DC    C'                                       '               
+         DC    X'15'                                                    
+         DC    C'    IMS3270 - IMS/ESA on this system   '               
+         DC    C'                                       '               
+         DC    X'15'                                                    
+         DC    C'    VMESA - VM/ESA 2.4                 '               
+         DC    C'                                       '               
+         DC    x'15'                                                    
+         DC    C'    PVM - VM/Passthrough network from V'               
+         DC    C'MESA                                   '               
+         DC    X'151515'                                                
+END010   EQU   *                                                        
+         EJECT                                                          
+END      USSEND                                                         
+         END     ,            END OF ASSEMBLY                           

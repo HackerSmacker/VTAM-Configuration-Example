@@ -1,0 +1,22 @@
+         VBUILD TYPE=APPL
+A3270D     APPL APPC=YES,SRBEXIT=NO,DSESLIM=50
+A32T01     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              
+A32T02     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              
+A32T03     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              
+A32T04     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              
+A32T05     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              
+A32T06     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              
+A32T07     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              
+A32T08     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              
+A32T09     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              
+A32T10     APPL  AUTH=NVPACE,EAS=1,PARSESS=NO,MODETAB=ISTINCLM,        X
+               SESSLIM=YES                                              

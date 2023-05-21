@@ -1,0 +1,13 @@
+P390APP  VBUILD TYPE=APPL                                               
+P390LU   APPL  APPC=YES,                                               X
+               AUTH=(ACQ),                                             X
+               AUTOSES=1,                                              X
+               DSESLIM=20,                                             X
+               DMINWNL=10,                                             X
+               DMINWNR=10,                                             X
+               SECACPT=ALREADYV,                                       X
+               EAS=509,                                                X
+               MODETAB=LOGMODES,                                       X
+               PARSESS=YES,                                            X
+               SRBEXIT=YES,                                            X
+               VPACING=8                                                

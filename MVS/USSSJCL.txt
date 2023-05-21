@@ -1,0 +1,26 @@
+//USSS     JOB ' ','VALERIE WHITE',                                     
+//      CLASS=A,MSGCLASS=H,NOTIFY=&SYSUID,                              
+//      MSGLEVEL=(1,1),REGION=0M,TIME=1440                              
+//ASM EXEC PGM=ASMA90,REGION=1024K,PARM='NODECK,OBJECT'                 
+//SYSPRINT DD SYSOUT=*                                                  
+//SYSLIB DD DSN=SYS1.MACLIB,DISP=SHR                                    
+//       DD DSN=SYS1.SISTMAC1,DISP=SHR                                  
+//SYSUT1 DD UNIT=SYSALLDA,SPACE=(CYL,(20,5))                            
+//SYSUT2 DD UNIT=SYSALLDA,SPACE=(CYL,(10,1))                            
+//SYSUT3 DD UNIT=SYSALLDA,SPACE=(CYL,(2,1))                             
+//SYSUT4 DD UNIT=SYSALLDA,SPACE=(CYL,(2,1))                             
+//SYSUT5 DD UNIT=SYSALLDA,SPACE=(CYL,(2,1)),DCB=SYS1.MACLIB,            
+// DISP=(,PASS)                                                         
+//SYSLIN DD DSN=&&OBJ(USSS),DISP=(,PASS),                               
+// SPACE=(CYL,(1,1,1)),UNIT=SYSALLDA                                    
+//SYSIN DD DSN=SYS1.VTAM.SOURCE(USSS2),DISP=SHR                         
+//*                                                                     
+//LKED EXEC PGM=HEWLH096,COND=(0,LT),                                   
+// PARM=('SIZE=(1000K,100K),NCAL,XREF,LET,LIST')                        
+//SYSPRINT DD SYSOUT=*                                                  
+//SYSLMOD DD DSN=SYS1.LOCAL.VTAMLIB,DISP=SHR                            
+//SYSUT1 DD UNIT=SYSALLDA,SPACE=(6160,(230,760))                        
+//OBJECT DD DSN=*.ASM.SYSLIN,VOL=REF=*.ASM.SYSLIN,DISP=SHR              
+//SYSLIN DD *                                                           
+  INCLUDE OBJECT(USSS)                                                  
+  NAME USSS(R)                                                          

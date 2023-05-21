@@ -1,0 +1,8 @@
+         VBUILD  TYPE=ADJSSCP                                           
+*                                                                       
+VMESA    ADJCDRM                                                        
+*                                                                       
+         NETWORK NETID=HSNET                                            
+*                                                                       
+VMESA    CDRM                                                           
+VMESA    ADJCDRM                                                        

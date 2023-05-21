@@ -1,0 +1,10 @@
+CTCA     VBUILD TYPE=CA                                                 
+CTCAGRP  GROUP LNCTL=CTCA,                                             X
+               ISTATUS=ACTIVE,                                         X
+               REPLYTO=3.0                                              
+VMESAL   LINE  ADDRESS=E40,                                            X
+               DELAY=.5,                                               X
+               MIH=YES,                                                X
+               ISTATUS=ACTIVE,                                         X
+               MAXBFRU=(8)                                              
+VMESAPU  PU    PUTYPE=4,TGN=3                                           

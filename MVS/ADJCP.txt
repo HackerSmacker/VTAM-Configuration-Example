@@ -1,0 +1,2 @@
+ADJCP     VBUILD TYPE=ADJCP                                             
+VMESA     ADJCP  NN=YES,NETID=HSNET,VN=NO                               
