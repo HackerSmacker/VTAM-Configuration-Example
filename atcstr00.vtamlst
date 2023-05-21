@@ -1,0 +1,32 @@
+CONFIG=00,                   CONFIGURATION LIST SUFFIX                 -
+NETID=HSNET,                 NETWORK NAME CONTAINING THIS HOST         -
+NODETYPE=NN,                 ICN NETWORKNODE                           -
+CONNTYPE=APPN,               APPN OR SUBAREA (BACKWARDS COMPATIBLE)    -
+APPNCOS=COSAPPN,             CLASS OF SERVICE TABLE FOR APPN           -
+HOSTPU=VMESA$PU,             NETWORK NAME OF HOST PU                   -
+HOSTSA=001,                  DEFINE HOST SUBAREA NUMBER                -
+SSCPID=001,                  SSCP IDENTIFIER (REQUIRED)                -
+SSCPNAME=VMESA,              THIS IS OUR MACHINE NAME                  -
+GWSSCP=YES,                  SSCP IS A GATEWAY                         -
+DYNASSCP=YES,                ENABLE DYNAMICALLY DEFINED SSCP TABLES    -
+DYNADJCP=YES,                DYNAMIC ADJACENT CPS                      -
+SSCPDYN=YES,                 ADD ENTRIES DYNAMICALLY TO ADJSSCP        -
+CPCP=YES,                    SOLICIT CP-CP APPN SESSIONS?              -
+DYNLU=YES,                   DYNAMIC LUS                               -
+SSCPORD=PRIORITY,            SCAN ADJSSCP IN THE SAME ORDER AS DEFINED -
+CDRSCTI=480,                 TIME TO RETAIN DYN CDRSCS (SECS)          -
+CSALIMIT=3000,               MAX AMOUNT OF CSA                         -
+DLRTCB=32,                   NUM OF DUMP/LOAD/RESTART TCBS             -
+IOINT=1800,                  DEFINE PENDING MSG TIME INTERVAL          -
+MAXSUBA=255,                 INDICATE ENA WITHOUT A WARNING MSG        -
+MSGMOD=NO,                   DO NOT IDENTIFY MODULE IN MSGS            -
+NOPROMPT,                    DO NOT PROMPT OPERATOR FOR OPTIONS        -
+PPOLOG=NO,                   INDICATE PPO LOG USED NETVIEW GETS MSGS   -
+SUPP=NOSUP,                  NO SUPPRESSION OF VTAM MSGS               -
+NOTNSTAT,                    REQUIED TO PREVENT ETHERNET LOCKUPS       -
+CRPLBUF=(120,,,F,30,30),     ONE FOR EACH APPL WAITING ON RESP         -
+IOBUF=(50,3200,,,4,30),      ONE FOR EACH PIU                          -
+LPBUF=(48,,,,6,8),           ONE FOR EACH VTAM PROCESS                 -
+SFBUF=(51),                  ONE FOR EACH APPL WITH EAS >= 30          -
+SPBUF=(32)                   ONE FOR EACH LMPEO SEND REQUEST
+

@@ -1,0 +1,53 @@
+HSNET    VBUILD TYPE=SWNET,MAXDLUR=10,MAXNO=10,MAXGRP=10
+* THIS PU NAME NEEDS TO BE DIFFERENT THAN THE REMOTE SYSTEM'S NAME
+NT4SRVPU    PU ADDR=01,                                                -
+               MAXPATH=5,                                              -
+               CONNTYPE=APPN,                                          -
+               CPCP=NO,                                                -
+               CPNAME=NT4SRV,                                          -
+               DISCNT=NO,                                              -
+               DWACT=NO,                                               -
+               DYNLU=YES,                                              -
+               IDBLK=05D,                                              -
+               IDNUM=00055,                                            -
+               ISTATUS=ACTIVE,                                         -
+               MAXDATA=1496,                                           -
+               MAXOUT=7,                                               -
+               MODETAB=ISTINCLM,                                       -
+               NETID=HSNET,                                            -
+               PACING=7,                                               -
+               PUTYPE=2,                                               -
+               SSCPFM=USSSCS,                                          -
+               VPACING=7
+* THIS IS THE DESTINATION MAC ADDRESS
+* 0004 IS THE SAP ADDR THEN THE REST IS THE MAC
+NT4SRVP   PATH GRPNM=ETHGRP,DIALNO=0004AA0004002204
+NT4005      LU LOCADDR=5,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS
+NT4006      LU LOCADDR=6,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS
+NT4007      LU LOCADDR=7,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS
+NT4008      LU LOCADDR=8,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS
+*
+OS2SRVPU    PU ADDR=01,                                                -
+               MAXPATH=5,                                              -
+               CONNTYPE=APPN,                                          -
+               CPCP=NO,                                                -
+               CPNAME=OS2SERV,                                         -
+               DISCNT=NO,                                              -
+               DWACT=NO,                                               -
+               DYNLU=YES,                                              -
+               IDBLK=05D,                                              -
+               IDNUM=00050,                                            -
+               ISTATUS=ACTIVE,                                         -
+               MAXDATA=1496,                                           -
+               MAXOUT=7,                                               -
+               MODETAB=ISTINCLM,                                       -
+               NETID=HSNET,                                            -
+               PACING=7,                                               -
+               PUTYPE=2,                                               -
+               SSCPFM=USSSCS,                                          -
+               VPACING=7
+OS2SRVP   PATH GRPNM=ETHGRP,DIALNO=000408002710ABAA
+OS2005      LU LOCADDR=5,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS
+OS2006      LU LOCADDR=6,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS
+OS2007      LU LOCADDR=7,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS
+OS2008      LU LOCADDR=8,ISTATUS=ACTIVE,DLOGMOD=D4C32XX3,USSTAB=USSS

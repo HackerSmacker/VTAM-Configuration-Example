@@ -1,0 +1,17 @@
+XCAETH  VBUILD TYPE=XCA
+* THIS IS ON ADDRESS 0E22
+ETHPRT    PORT ADAPNO=0,                                               -
+               CUADDR=E22,                                             -
+               DELAY=0,                                                -
+               MEDIUM=CSMACD,                                          -
+               SAPADDR=4,                                              -
+               TIMER=30
+*
+ETHGRP   GROUP ANSWER=ON,                                              -
+               AUTOGEN=(10,E,X),                                       -
+               CALL=INOUT,                                             -
+               DIAL=YES,                                               -
+               DYNPU=YES,                                              -
+               DYNPUPFX=ET,                                            -
+               ISTATUS=ACTIVE
+

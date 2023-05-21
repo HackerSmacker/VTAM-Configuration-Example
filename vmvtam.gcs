@@ -1,0 +1,138 @@
+/*-------------------------------------------------------------------*/
+/*                  VM/VTAM initialization script           5/16/21  */
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/* NOTE: You must insert your customer number and VTAM password in   */
+/*       in the variables "num" and "pw" below.                      */
+/*       You can find these in a VSE VTAM startup job.               */
+
+trace o
+parse source . . exec_name .
+Say ''
+Say 'VM/VTAM initialization ('exec_name'.GCS) starting on' date() time()
+
+
+/*---------------------------------------------------------------------*/
+/*  Parse input parameters                                             */
+/*---------------------------------------------------------------------*/
+
+/* First check for old form "LIST=nn,CONFIG=nn"                  */
+options = '';
+ARG cmdline                     /* Obtain command line parms     */
+cmdline = Translate(cmdline,' ',',')  /* Remove embedded commas  */
+temp =  Word(cmdline,1)
+parse value temp with front '=' back
+If (front = 'CONFIG') | (front = 'LIST') then do
+  list_value = back
+  If length(list_value) ^= 2 then do
+     Say temp 'has invalid syntax, LIST=00 will be used.'
+     list_value = 00
+     end
+  End;
+/* Else, try the new form  "nn, options "                      */
+Else Do
+   ARG list_value ',' options
+   If list_value = '' then list_value='00'
+   Else If length(list_value) ^=2 then do
+      say '** ERROR ** Invalid VMVTAM parameters.  Valid syntax is:'
+      say ''
+      say '  VMVTAM sscpname "," options '
+      say '    where sscpname is 2 characters (ex. 01)'
+      say ''
+      say '  EXAMPLE:  VMVTAM 01,IOBUF=(3,1024,1,,3,2,20),XNETALS=YES'
+      say ''
+      Exit 4
+      end
+   End;
+
+/*---------------------------------------------------------------------*/
+/*  Set CP options to improve performance of VTAM virtual machine      */
+/*---------------------------------------------------------------------*/
+
+/*  'CP SET QUICKDSP VTAM'   */           /* VTAM always dispatchable */
+
+Call QSAM
+Call Tuning
+
+
+/*---------------------------------------------------------------------*/
+/*  VTAM initialization                                                */
+/*---------------------------------------------------------------------*/
+
+'FILEDEF NCPLOAD DISK NGMNCP LOADLIB'
+'GLOBAL LOADLIB USSTAB PCVTAM VTAM VSCS'
+
+'LOADCMD VTAM ISTINV00'
+'LOADCMD VSCS DTISLCMD'
+
+num='Cxxx-xxx-xxxx'
+pw='xxxx-xxxx-xxxx-xxxx-xxxx'
+
+Say 'Using configuration files ACTSTR'list_value 'and ACTCON'list_value'.'
+
+
+If options='' then
+  'VTAM START CUSTNO='num',VTAMPW='pw',LIST='list_value
+else
+  'VTAM START CUSTNO='num',VTAMPW='pw',LIST='list_value','options
+rcode=rc
+If rcode^=0 then do             /* If VTAM start failure         */
+    say '**ERROR** VTAM initialization ('exec_name'.GCS) failed'
+    Exit rcode
+    End;
+
+/*---------------------------------------------------------------------*/
+/*  VSCS initialization                                                */
+/*---------------------------------------------------------------------*/
+'VSCS START PARM=0'    /* Initialize VSCS               */
+rcode=rc                        /* Save startup return code      */
+if rcode^=0 then                /* If VTAM start failure         */
+    say '**ERROR** VSCS initialization ('exec_name'.GCS) failed'
+Exit rcode;
+
+
+
+/*---------------------------------------------------------------------*/
+/*  Optional stuff                                                     */
+/*---------------------------------------------------------------------*/
+QSAM:
+/**
+***
+*** NOTE:  This section contains the FILEDEF's for the QSAM (TOPO)
+***        support.  Please note that all lines are commented out
+***        and if you want to incorporate them into your startup
+***        exec, the comment lines should be removed.
+***
+***
+**/
+
+/**
+*** 'FILEDEF DSDBCTRL DISK DSDBCTRL DATA * (LRECL 00020 RECFM FB',
+***    ' BLOCK 00020 DSORG PS'
+*** 'FILEDEF DSDB1 DISK DSDB1 DATA * (LRECL 01000 RECFM FB BLOCK 01000',
+***    ' DSORG PS'
+*** 'FILEDEF DSDB2 DISK DSDB2 DATA * (LRECL 01000 RECFM FB BLOCK 01000',
+***    ' DSORG PS'
+*** 'FILEDEF TRSDB DISK TRSDB DATA * (LRECL 01000 RECFM FB BLOCK 01000',
+***    ' DSORG PS'
+**/
+Return;
+
+Tuning:
+/**
+***
+*** NOTE:  This section contains the FILEDEF's for the TUNING EXEC
+***        support.  Please note that all lines are commented out
+***        and if you want to incorporate this function into your
+***        startup exec, the comment lines should be removed.
+***
+**/
+
+/**
+*** 'FILEDEF TUNSTATS DISK FILE TUNSTATS * (LRECL 00128 RECFM VB ',
+***    ' DSORG PS'
+***
+**/
+Return;
+
+

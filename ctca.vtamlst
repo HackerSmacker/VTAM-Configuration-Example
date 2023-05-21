@@ -1,0 +1,17 @@
+CTCA     VBUILD TYPE=CA
+CTCAGRP  GROUP LNCTL=CTCA,                                             X
+               ISTATUS=ACTIVE,                                         X
+               REPLYTO=3.0
+OS390L   LINE  ADDRESS=E42,                                            X
+               DELAY=.5,                                               X
+               MIH=YES,                                                X
+               ISTATUS=ACTIVE,                                         X
+               MAXBFRU=(8)
+OS390PU  PU    PUTYPE=4,TGN=3
+VSEESAL  LINE  ADDRESS=E46,                                            X
+               DELAY=.5,                                               X
+               MIH=YES,                                                X
+               ISTATUS=ACTIVE,                                         X
+               MAXBFRU=(8)
+VSEESAPU PU    PUTYPE=4,TGN=6
+

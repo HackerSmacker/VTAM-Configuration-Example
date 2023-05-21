@@ -1,0 +1,247 @@
+AGWTAB   CSECT                                                          00010000
+AGWTAB   MODETAB                                                        00020000
+*********************************************************************** 00030000
+*                                                                     * 00040000
+*  SESSION PARAMATERS FOR AGW                                         * 00050000
+*                                                                     * 00060000
+*  NOTE :  IN THE REQUEST UNIT PORTION OF A PATH INFORMATION UNIT FOR * 00070000
+*          VTAM (FOR EXAMPLE IN A TRACE) THE  FIRST BYTE IS ALWAYS  A * 00080000
+*          '31'X.  THIS BYTE IS TRADITIONALLY BYTE 0 AND IS  REFERRED * 00090000
+*          TO AS BYTE 0 IN MANUALS SUCH AS THE  SNA REFERENCE SUMMARY * 00100000
+*          AND  SNA  FORMAT  AND PROTOCOL MANUALS.  ON THE OTHER HAND * 00110000
+*          THE VTAM PROGRAMMING MANUAL  AND  INSTALLTION GUIDE IGNORE * 00120000
+*          THIS BYTE SINCE IT IS ALWAYS THE SAME.  THE RESULT IS THAT * 00130000
+*          WHAT THE PROGRAMMING GUIDE REFERS TO AS BYTE 0 IS REFERRED * 00140000
+*          TO AS BYTE ONE BY THE FAP AND SNA REFERENCE SUMMARY.       * 00150000
+*                                                                     * 00160000
+*  BIND     MEANING                               |  MACRO OPERAND    * 00170000
+*  -----------------------------------------------|------------------ * 00180000
+*                                                 |                   * 00190000
+*  BYTE 1  BITS 0-3 ALWAY 0 BITS 4-7 '00'X MEANS  |  TYPE=0           * 00200000
+*          IT IS NEGOTIABLE.                      |                   * 00210000
+*                                                 |                   * 00220000
+*  BYTE 2  THIS INDICATES THE FUNCTION MANAGEMENT |  FMPROF='13'X     * 00230000
+*          PROFILE.  ONLY PROFILE '13'X IS VALID  |                   * 00240000
+*          FOR LU 6.2.                            |                   * 00250000
+*                                                 |                   * 00260000
+*  BYTE 3  TRANSMISSION SUBSYSTEM PROFILE.  ONLY A|  TSPROF='07'X     * 00270000
+*          '07'X IS VALID FOR LU 6.2              |                   * 00280000
+*                                                 |                   * 00290000
+*  BYTE 4  FUNCTION MANAGEMENT USEAGE PRIMARY     |  PRIPROT='B0'     * 00300000
+*          LOGICAL UNIT PROTOCOLS FOR FUNCTIONAL  |                   * 00310000
+*          MANAGEMENT DATA.                       |                   * 00320000
+*                                                 |                   * 00330000
+*  BITS 0  1  FOR MULTIPLE RU CHAINS              |                   * 00340000
+*       1  0  USE IMMEDIATE REQUEST MODE.  THIS IS|                   * 00350000
+*             THE ONLY VALUE DEFINED FOR LU 6.2.  |                   * 00360000
+*     2-3  11 DEFINITE OR EXCEPTION RESPONSE ONLY |                   * 00370000
+*             VALUE DEFINED FOR LU 6.2            |                   * 00380000
+*       4  0  RESERVED IF ANY TRANSMISSION PROFILE|                   * 00390000
+*             OTHER THAN '04'X IS USED AS IS THE  |                   * 00400000
+*             CASE HERE.                          |                   * 00410000
+*       5  0  RESERVED.                           |                   * 00420000
+*       6  0  RESERVED IN THE CASE OF LU 6.2.     |                   * 00430000
+*       7  0  PRIMARY LOGICAL UNIT WILL NOT SEND  |                   * 00440000
+*             END BRACKET. ONLY VALUE DEFINED FOR |                   * 00450000
+*             LU 6.2.                             |                   * 00460000
+*                                                 |                   * 00470000
+*  BYTE 5  FUNCTION MANAGEMENT USEAGE SECONDARY   |  SECPROT='B0'     * 00480000
+*          LOGICAL UNIT PROTOCOLS FOR FUNCTION    |                   * 00490000
+*          UNIT PROTOCOLS FOR FUNCTION MANAGEMENT |                   * 00500000
+*          DATA.                                  |                   * 00510000
+*                                                 |                   * 00520000
+*  BITS 0  1  FOR MULTIPLE RU CHAINS              |                   * 00530000
+*       1  0  USE DELAYED REQUEST MODE            |                   * 00540000
+*     2-3  11 DEFINITE OR EXCEPTION RESPONSE ONLY |                   * 00550000
+*             VALUE DEFINED FOR LU 6.2.           |                   * 00560000
+*       4  0  RESERVED IF ANY TRANSMISSION PROFILE|                   * 00570000
+*             OTHER THAN '04'X IS USED AS IS THE  |                   * 00580000
+*             CASE HERE.                          |                   * 00590000
+*       5  0  RESERVED                            |                   * 00600000
+*       6  0  RESERVED FOR LU 6.2.                |                   * 00610000
+*       7  0  SECONDARY WILL NOT SEND END BRACKET.|                   * 00620000
+*             ONLY VALUE DEFINED FOR LU 6.2.      |                   * 00630000
+*                                                 |                   * 00640000
+*  BYTE 6  FUNCTION MANAGEMENT USEAGE COMMON      |   COMPROT=78A5    * 00650000
+*          LOGICAL UNIT PROTOCOLS FOR FUNCTION    |                   * 00660000
+*                                                 |                   * 00670000
+*  BITS 0  0  LOGICAL UNIT SUPPORTS RECEPTION OF  |                   * 00680000
+*             SEGMENTS                            |                   * 00690000
+*       1  1  FUNCTION MANAGEMENT HEADERS ALLOWED |                   * 00700000
+*             ONLY VALUE FOR LU 6.2.              |                   * 00710000
+*       2  1  BRACKETS ARE USED.                  |                   * 00720000
+*       3  1  BRACKET TERMINATION RULE 1 FOR LU   |                   * 00730000
+*             6.2.                                |                   * 00740000
+*       4  1  ALTERNATE CODE SET ALLOWED          |                   * 00750000
+*       5  0  SEQUENCE NUMBERS FOR SYNCPOINT      |                   * 00760000
+*             RESERVED IF TS PROFILE OTHER THAN   |                   * 00770000
+*             '04'X IS USED AS IS THE CASE HERE.  |                   * 00780000
+*       6  0  RESERVED IN THIS CASE BECAUSE TS    |                   * 00790000
+*             OTHER THAN '04'X IS USED.           |                   * 00800000
+*       7  0  BIND RESPONSE CAN`T BE QUEUED.      |                   * 00810000
+*                                                 |                   * 00820000
+*  BYTE 7                                         |                   * 00830000
+*                                                 |                   * 00840000
+*  BITS 0-1 10 HALF-DUPLEX FLIP FLOP ONLY LU 6.2. |                   * 00850000
+*       2   1  SYMMETRIC RESPONSIBILITY FOR       |                   * 00860000
+*              RECOVERY LU 6.2 DEFINITION ONLY.   |                   * 00870000
+*              LU 6.2 DEFINITION ONLY.            |                   * 00880000
+*       3   0  SECONDARY IS CONTENTION WINNER AND |                   * 00890000
+*              PRIMARY LU IS CONTENTION LOSER.    |                   * 00900000
+*              DEFINED FOR LU 6.2.                |                   * 00910000
+*       4-5 01 PROCESS ALTERNATE CODE FMD RU'S AS |                   * 00920000
+*              ASCII-8 ONLY VALUE DEFINED FOR     |                   * 00930000
+*              LU 6.2.                            |                   * 00940000
+*       6   0  RESERVED                           |                   * 00950000
+*       7   1  HDX-FF RESET STATE IS SEND. PRIMARY|                   * 00960000
+*              SENDS NORMAL-FLOW REQUESTS FIRST   |                   * 00970000
+*              AFTER SESSION ACTIVATION.  ONLY    |                   * 00980000
+*              VALUE DEFINED FOR LU 6.2.          |                   * 00990000
+*                                                 |                   * 01000000
+*  BYTE 8 TRANSMISSION SUBSYSTEM USEAGE - PACING  |  SSNDPAC='00'X    * 01010000
+*         REQUESTS FROM THE SECONDARY LU TO THE   |                   * 01020000
+*         PRIMARY. NO PACING IN THIS CASE.        |                   * 01030000
+*                                                 |                   * 01040000
+*  BYTE 9 TRANSMISSION SUBSYSTEM USEAGE - PACING  |  SRCVPAC='00'X    * 01050000
+*         REQUESTS FLOWING TO THE SECONDARY.  NO  |                   * 01060000
+*         PACING IN THIS CASE.                    |                   * 01070000
+*                                                 |                   * 01080000
+*  BYTE 10 MAXIMUM RU SIZE SENT ON THE NORMAL FLOW|  RUSIZES='8989'X  * 01090000
+*          BY THE SECONDARY HALF-SESSION.  RESULT |                   * 01100000
+*          IS 4096 BYTES AT A TIME.               |                   * 01110000
+*                                                 |                   * 01120000
+*  BYTE 11 MAXIMUM RU SIZE SENT ON THE NORMAL FLOW|  "    "           * 01130000
+*          BY THE PRIMARY HAL-SESSION.  RESULT IS |                   * 01140000
+*          4096 BYTES AT A TIME.                  |                   * 01150000
+*                                                 |                   * 01160000
+*  BYTE 12 PRIMARY TO SECONDARY PACING. 0 MEANS   |  PSNDPAC='00'X    * 01170000
+*          PACING OF REQUESTS FLOWING FROM THE    |                   * 01180000
+*          PRIMARY TO THE SECONDARY.              |                   * 01190000
+*          SECONDARY.                             |                   * 01200000
+*                                                 |                   * 01210000
+*  BYTE 13 PRIMARY TO SECONDARY PACING. PACING OF |  NONE             * 01220000
+*          REQUESTS FLOWING TO THE PRIMARY FROM   |                   * 01230000
+*          THE SECONDARY.                         |                   * 01240000
+*                                                 |                   * 01250000
+*  BYTE 14 PRESENTATION SERVICES PROFILE.         | PSERVIC =         * 01260000
+*                                                 | '0602000000000000 * 01270000
+*  BITS 0   0 ONLY VALUE DEFINED.                 |  00122F00'        * 01280000
+*       1-7 0000110 LU TYPE 6.                    |                   * 01290000
+*                                                 |                   * 01300000
+*  BYTE 15  LU 6 LEVEL                            |                   * 01310000
+*                                                 |                   * 01320000
+*  BITS 0-7 '02'X  LEVEL 2 OF LU TYPE 6 OR 6.2.   |                   * 01330000
+*                                                 |                   * 01340000
+*  BYTE 16-22 ARE RESERVED.                       |                   * 01350000
+*                                                 |                   * 01360000
+*  BYTE 23                                        |                   * 01370000
+*                                                 |                   * 01380000
+*  BITS 0-2 RETIRED  SO 000.                      |                   * 01390000
+*       3   1 TO SAY ACCESS SECURITY INFORMATION  |                   * 01400000
+*           FIELD WILL BE ACCEPTED ON INCOMING    |                   * 01410000
+*           FMH-5S.                               |                   * 01420000
+*       4-5 RESERVED.                             |                   * 01430000
+*       6   1 TO SAY ALREADY VERIFIED INDICATOR   |                   * 01440000
+*           WILL BE ACCEPTED ON INCOMING FMH-5S.  |                   * 01450000
+*       7   RESERVED                              |                   * 01460000
+*                                                 |                   * 01470000
+*  BYTE 24                                        |                   * 01480000
+*                                                 |                   * 01490000
+*  BITS 0      RESERVED.                          |                   * 01500000
+*       1-2 01 TO SAY CONFIRM BUT NO SYNC POINT.  |                   * 01510000
+*       3   0  RESERVED.                          |                   * 01520000
+*       4-5 11 EITHER END MAY REINITIATE SESSION. |                   * 01530000
+*       6   1  PARALELL SESSIONS ARE SUPPORTED.   |                   * 01540000
+*       7   1  CNOS GDS VARIABLE FLOW SUPPORTED.  |                   * 01550000
+*                                                 |                   * 01560000
+*  BYTE 24 RESERVED.                              |                   * 01570000
+*                                                 |                   * 01580000
+*********************************************************************** 01590000
+AGW2AGW1   MODEENT LOGMODE=AGW2AGW1,    AGW  (SLU) TO AGW (PLU)        X01600000
+               PSNDPAC=X'00',           PRIMARY SEND PACING COUNT      X01610000
+               SRCVPAC=X'00',           SECONDARY RECEIVE PACING COUNT X01620000
+               SSNDPAC=X'00',           SECONDARY SEND PACING COUNT    X01630000
+               TYPE=0,                  NEGOTIATED BIND                X01640000
+               FMPROF=X'13',            FM PROFILE 19 LU 6.2           X01650000
+               TSPROF=X'07',            TS PROFILE 7 LU 6.2            X01660000
+               PRIPROT=X'B0',           PRIMARY NAU PROTOCOL           X01670000
+               SECPROT=X'B0',           SECONDARY NAU PROT             X01680000
+               RUSIZES=X'8989',         8 X 2**9 = 4096                X01690000
+               COMPROT=X'78A5',         COMMON NAU PROT                X01700000
+               PSERVIC=X'060200000000000000122F00'   SYSMSG/Q MODEL     01710000
+*********************************************************************** 01720000
+*                                                                     * 01730000
+*  SESSION PARAMATERS FOR AGW BASED ON AGW2AGW1 ABOVE BUT WILL NOT    * 01740000
+*  ACCEPT SEGMENTS BYTE 6 BIT 0 IS NOW A ONE SEE COMPROT BELOW.       * 01750000
+*                                                                     * 01760000
+*********************************************************************** 01770000
+AGW2AGW2   MODEENT LOGMODE=AGW2AGW2,    AGW  (SLU) TO AGW (PLU)        X01780000
+               PSNDPAC=X'00',           PRIMARY SEND PACING COUNT      X01790000
+               SRCVPAC=X'00',           SECONDARY RECEIVE PACING COUNT X01800000
+               SSNDPAC=X'00',           SECONDARY SEND PACING COUNT    X01810000
+               TYPE=0,                  NEGOTIATED BIND                X01820000
+               FMPROF=X'13',            FM PROFILE 19 LU 6.2           X01830000
+               TSPROF=X'07',            TS PROFILE 7 LU 6.2            X01840000
+               PRIPROT=X'B0',           PRIMARY NAU PROTOCOL           X01850000
+               SECPROT=X'B0',           SECONDARY NAU PROT             X01860000
+               RUSIZES=X'8989',         8 X 2**9 = 4096                X01870000
+               COMPROT=X'F8A5',         COMMON NAU PROT                X01880000
+               PSERVIC=X'060200000000000000122F00'   SYSMSG/Q MODEL     01890000
+*********************************************************************** 01900000
+*                                                                     * 01910000
+*  SESSION PARAMATERS FOR AGW BASED ON AGW2AGW1 ABOVE BUT WILL NOW    * 01920000
+*  ALLOW A QUEUED  BIND BYTE 6 BIT 7 NOW A 1 SEE COMPROT BELOW.       * 01930000
+*                                                                     * 01940000
+*********************************************************************** 01950000
+AGW2AGW3   MODEENT LOGMODE=AGW2AGW3,    AGW  (SLU) TO AGW (PLU)        X01960000
+               PSNDPAC=X'00',           PRIMARY SEND PACING COUNT      X01970000
+               SRCVPAC=X'00',           SECONDARY RECEIVE PACING COUNT X01980000
+               SSNDPAC=X'00',           SECONDARY SEND PACING COUNT    X01990000
+               TYPE=0,                  NEGOTIATED BIND                X02000000
+               FMPROF=X'13',            FM PROFILE 19 LU 6.2           X02010000
+               TSPROF=X'07',            TS PROFILE 7 LU 6.2            X02020000
+               PRIPROT=X'B0',           PRIMARY NAU PROTOCOL           X02030000
+               SECPROT=X'B0',           SECONDARY NAU PROT             X02040000
+               RUSIZES=X'8989',         8 X 2**9 = 4096                X02050000
+               COMPROT=X'79A5',         COMMON NAU PROT                X02060000
+               PSERVIC=X'060200000000000000122F00'   SYSMSG/Q MODEL     02070000
+*********************************************************************** 02080000
+*                                                                     * 02090000
+*  SESSION PARAMATERS FOR AGW BASED ON AGW2AGW1 ABOVE BUT WILL NOT    * 02100000
+*  ACCEPT SEGMENTS BYTE 6 BIT 0 IS NOW A ONE SEE COMPROT BELOW.       * 02110000
+*  ALSO WILL ACCEPT QUEUED BINDS SEE BYTE 6 BIT 7 IN COMPROT BELOW.   * 02120000
+*                                                                     * 02130000
+*********************************************************************** 02140000
+AGW2AGW4   MODEENT LOGMODE=AGW2AGW4,    AGW  (SLU) TO AGW (PLU)        X02150000
+               PSNDPAC=X'00',           PRIMARY SEND PACING COUNT      X02160000
+               SRCVPAC=X'00',           SECONDARY RECEIVE PACING COUNT X02170000
+               SSNDPAC=X'00',           SECONDARY SEND PACING COUNT    X02180000
+               TYPE=0,                  NEGOTIATED BIND                X02190000
+               FMPROF=X'13',            FM PROFILE 19 LU 6.2           X02200000
+               TSPROF=X'07',            TS PROFILE 7 LU 6.2            X02210000
+               PRIPROT=X'B0',           PRIMARY NAU PROTOCOL           X02220000
+               SECPROT=X'B0',           SECONDARY NAU PROT             X02230000
+               RUSIZES=X'8989',         8 X 2**9 = 4096                X02240000
+               COMPROT=X'79A5',         COMMON NAU PROT                X02250000
+               PSERVIC=X'060200000000000000122F00'   SYSMSG/Q MODEL     02260000
+*********************************************************************** 02270000
+*                                                                     * 02280000
+*  SESSION PARAMATERS FOR AGW BASED ON CICS TO IMS SESSION LU 6.1.    * 02290000
+*                                                                     * 02300000
+*********************************************************************** 02310000
+AGW2AGWX   MODEENT LOGMODE=AGW2AGWX,    AGW  (SLU) TO AGW (PLU)        X02320000
+               PSNDPAC=X'01',           PRIMARY SEND PACING COUNT      X02330000
+               SRCVPAC=X'01',           SECONDARY RECEIVE PACING COUNT X02340000
+               SSNDPAC=X'01',           SECONDARY SEND PACING COUNT    X02350000
+               TYPE=0,                  NEGOTIATED BIND                X02360000
+               FMPROF=X'12',            FM PROFILE 18 LU 6.1           X02370000
+               TSPROF=X'04',            TS PROFILE 4 LU 6.1            X02380000
+               PRIPROT=X'B1',           PRIMARY NAU PROT               X02390000
+               SECPROT=X'B1',           SECONDARY NAU PROT             X02400000
+               RUSIZES=X'8989',         8 X 2**6                       X02410000
+               COMPROT=X'70A0',         COMMON NAU PROT                X02420000
+               PSERVIC=X'060038000000380000000000'   SYSMSG/Q MODEL     02430000
+*********************************************************************** 02440000
+         MODEEND                                                        02450000
+         END                                                            02460000
+

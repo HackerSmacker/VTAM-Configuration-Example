@@ -1,0 +1,66 @@
+*/* USSX/SYS1                                                  USIBMPC  USS00010
+*/* ------------------------------------------------------------------  USS00020
+*/*                                                                     USS00030
+*/*  USS TABLE FOR INVALID XIDS                                         USS00040
+*/*                                                                     USS00050
+*/*    CANNOT USE 3270 CONTROL CHARACTERS                               USS00060
+*/*                                                                     USS00070
+*/*    THIS MESSAGE ONLY GOES TO LUS WITH LOCADDR=2                     USS00080
+*/*                                                                     USS00090
+*/* ------------------------------------------------------------------  USS00100
+         SPACE                                                          USS00110
+USSX     TITLE 'ACF/VTAM USS TABLE FOR INVALID XIDS'                    USS00120
+         SPACE                                                          USS00130
+         PRINT NOGEN                                                    USS00140
+         SPACE                                                          USS00150
+USSX     USSTAB TABLE=0,FORMAT=V3R2                                     USS00160
+         SPACE                                                          USS00170
+USSMSG0  USSMSG MSG=0,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00180
+USSMSG1  USSMSG MSG=1,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00190
+USSMSG2  USSMSG MSG=2,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00200
+USSMSG3  USSMSG MSG=3,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00210
+USSMSG4  USSMSG MSG=4,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00220
+USSMSG5  USSMSG MSG=5,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00230
+USSMSG6  USSMSG MSG=6,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00240
+USSMSG7  USSMSG MSG=7,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00250
+USSMSG8  USSMSG MSG=8,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00260
+USSMSG9  USSMSG MSG=9,TEXT=(C'Your terminal identifier is: @@LUNAME')   USS00270
+         EJECT                                                          USS00280
+USSMSG10 USSMSG MSG=10,BUFFER=(BUF010,SCAN)                             USS00290
+         SPACE                                                          USS00300
+BUF010   DS    0H                                                       USS00310
+         DC    AL2(END010-BUF010)                                       USS00320
+         DC    X'4015'                                                  USS00330
+         DC    C'    Incorrect Communication Configuratio'              USS00340
+         DC    C'N       NETID   HOSTID   USSTAB=USSX   '               USS00350
+         DC    X'1515'                                                  USS00360
+         DC    C'      Your terminal identifier is: @@LUN'              USS00370
+         DC    C'AME                                    '               USS00380
+         DC    X'151515'                                                USS00390
+         DC    C'      For terminals using CPNAME:       '              USS00400
+         DC    C'                                       '               USS00410
+         DC    X'1515'                                                  USS00420
+         DC    C'        use CPNAME = CPC#####           '              USS00430
+         DC    C'                                       '               USS00440
+         DC    X'151515'                                                USS00450
+         DC    C'      For terminals using IDBLK/IDNUM:  '              USS00460
+         DC    C'                                       '               USS00470
+         DC    X'1515'                                                  USS00480
+         DC    C'        use IDBLK/IDNUM = 05D*####      '              USS00490
+         DC    C'                                       '               USS00500
+         DC    X'1515'                                                  USS00510
+         DC    C'         or IDBLK/IDNUM = 061*####      '              USS00520
+         DC    C'                                       '               USS00530
+         DC    X'151515'                                                USS00540
+         DC    C'      Your identifier (#####|####) must '              USS00550
+         DC    C'be unique by (CPNAME|IDBLK)            '               USS00560
+         DC    X'1515'                                                  USS00570
+END010   EQU   *                                                        USS00580
+         EJECT                                                          USS00590
+USSMSG11 USSMSG MSG=11,TEXT=(C'Your terminal identifier is: @@LUNAME')  USS00600
+USSMSH12 USSMSG MSG=12,TEXT=(C'Your terminal identifier is: @@LUNAME')  USS00610
+USSMSG13 USSMSG MSG=13,TEXT=(C'Your terminal identifier is: @@LUNAME')  USS00620
+USSMSG14 USSMSG MSG=14,TEXT=(C'Your terminal identifier is: @@LUNAME')  USS00630
+END      USSEND                                                         USS00640
+         END                                                            USS00650
+

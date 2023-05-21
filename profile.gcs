@@ -1,0 +1,32 @@
+/*--------------------------------------------------------------------*/
+/* PROFILE GCS for VM/CMS VTAM 4.2                           5/18/21  */
+/*--------------------------------------------------------------------*/
+
+    'ACCESS 29A F/F'
+    'CP SET PF1 RETRIEVE'
+    'CP SET PF2 VTAM D NET,ID='
+    'CP SET PF3 VTAM V NET,ACT,ID='
+    'CP SET PF4 VTAM V NET,INACT,FORCE,ID='
+    'CP SET PF5 VTAM D NET,PENDING'
+    'CP SET PF6 VTAM D NET,MAJNODES'
+    'CP SET PF7 VTAM D NET,ROUTE,DESTSA='
+    'CP SET PF8 VTAM D NET,PATHTAB,DESTSUB='
+    'CP SET PF12 RETRIEVE'
+    'CP SET PF13 RETRIEVE'
+    'CP SET PF24 RETRIEVE'
+
+    'CP SET SMSG IUCV'
+    'CP TERM HOLD OFF'
+    'CP TERM MORE 10 5'
+
+    'CP ATTACH E22 *'
+    'CP ATTACH E60 *'
+    'CP ATTACH E61 *'
+    /* A NOTE ABOUT THAT: YOU SHOULD PROBABLY DEDICATE THE DEVICES IN
+       YOUR SYSTEM DIRECTORY AND NOT RUN A BUNCH OF TIME-WASTING
+       ATTACH COMMANDS, ESPECIALLY ON SLOWER SYSTEMS */
+
+    'VMVTAM LIST=00,CONFIG=00'  /* ... proceed with initialization */
+
+Exit
+

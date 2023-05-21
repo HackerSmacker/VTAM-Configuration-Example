@@ -1,0 +1,10 @@
+* THE DESTINATION SUBAREA IS 12 (OS390 IN CDRM VTAMLST)
+* WE NEED TO TAKE TGN 6 TO GET THERE (OS390PU IN CTCA VTAMLST)         
+         PATH  DESTSA=12,                                              *
+               ER0=(12,6),ER1=(12,6),ER2=(12,6),ER3=(12,6),            *
+               ER4=(12,6),ER5=(12,6),ER6=(12,6),ER7=(12,6),            *
+               VR0=0,VR1=1,VR2=2,VR3=3,VR4=4,VR5=5,VR6=6,VR7=7
+         PATH  DESTSA=6,                                               *
+               ER0=(6,3),ER1=(6,3),ER2=(6,3),ER3=(6,3),                *
+               ER4=(6,3),ER5=(6,3),ER6=(6,3),ER7=(6,3),                *
+               VR0=0,VR1=1,VR2=2,VR3=3,VR4=4,VR5=5,VR6=6,VR7=7

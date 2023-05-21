@@ -1,0 +1,12 @@
+AVSVM    VBUILD TYPE=APPL
+* WHEN AVS STARTS UP, IT WILL BIND TO THIS APPLID
+VMESAGAT APPL  APPC=YES,                                               X
+               AUTOSES=10,                                             X
+               DSESLIM=100,                                            X
+               DMINWNL=50,                                             X
+               DMINWNR=50,                                             X
+               MODETAB=AGWTAB,                                         X
+               PARSESS=YES,                                            X
+               SYNCLVL=SYNCPT,                                         X
+               VERIFY=NONE,                                            X
+               SECACPT=ALREADYV

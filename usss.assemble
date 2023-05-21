@@ -1,0 +1,77 @@
+         SPACE                                                          USS00010
+USSS     TITLE 'ACF/VTAM USS TABLE FOR SNA DEVICES'                     USS00020
+         SPACE                                                          USS00030
+         PRINT NOGEN                                                    USS00040
+         SPACE                                                          USS00050
+USSS     USSTAB   FORMAT=DYNAMIC                                        USS00060
+         SPACE                                                          USS00070
+L        USSCMD   CMD=L,REP=LOGON,FORMAT=BAL                            USS00080
+         USSPARM  PARM=P1,REP=DATA                                      USS00090
+         USSPARM  PARM=LOGMODE                                          USS00100
+         USSPARM  PARM=APPLID,DEFAULT=VM                                USS00110
+         SPACE                                                          USS00120
+VMESA    USSCMD   CMD=VMESA,REP=LOGON,FORMAT=BAL                        USS00130
+         USSPARM  PARM=P1,REP=DATA                                      USS00140
+         USSPARM  PARM=LOGMODE                                          USS00150
+         USSPARM  PARM=APPLID,DEFAULT=VMESAVSC                          USS00160
+         SPACE                                                          USS00170
+VMHPO    USSCMD   CMD=VMHPO,REP=LOGON,FORMAT=BAL                        USS00180
+         USSPARM  PARM=P1,REP=DATA                                      USS00190
+         USSPARM  PARM=LOGMODE                                          USS00200
+         USSPARM  PARM=APPLID,DEFAULT=VMHPOVSC                          USS00210
+         SPACE                                                          USS00220
+* LOOP THOSE MACROS ABOVE TO GET MORE DEFINITIONS FOR YOUR SYSTEM       USS00221
+USSMSG10 USSMSG   MSG=10,BUFFER=(BUF010,SCAN)                           USS00980
+         EJECT                                                          USS00990
+BUF010   DS    0H                                                       USS01000
+         DC    AL2(END010-BUF010)                                       USS01010
+         DC    C'Welcome to FredNet                     '               USS01020
+         DC    C'       Your terminal: @@@@@@@@@@@@@@NQN'               USS01030
+         DC    X'1515'                                                  USS01040
+         DC    C'                                       '               USS01050
+         DC    C'            It is now @@@@DATE @@@@TIME'               USS01060
+         DC    X'151515'                                                USS01070
+         DC    C' Enter one of the following system name'               USS01080
+         DC    C's:                                     '               USS01090
+         DC    X'15'                                                    USS01100
+         DC    C'    Command - System Name (Local)      '               USS01110
+         DC    C'    Command - System Name (blah blah)  '               USS01120
+         DC    X'15'                                                    USS01130
+         DC    C'    Command - System Name              '               USS01140
+         DC    C'    Command - System Name              '               USS01150
+         DC    X'15'                                                    USS01160
+         DC    C'    Command - System Name              '               USS01170
+         DC    C'    Command - System Name              '               USS01180
+         DC    X'15'                                                    USS01190
+         DC    C'    Command - System Name              '               USS01200
+         DC    C'    Command - System Name              '               USS01210
+         DC    X'15'                                                    USS01220
+         DC    C'    Command - System Name              '               USS01230
+         DC    C'    Command - System Name              '               USS01240
+         DC    X'15'                                                    USS01250
+         DC    C'    Command - System Name              '               USS01260
+         DC    C'    Command - System Name              '               USS01270
+         DC    X'15'                                                    USS01280
+         DC    C'    Command - System Name              '               USS01290
+         DC    C'    Command - System Name              '               USS01300
+         DC    X'15'                                                    USS01310
+         DC    C'    Command - System Name              '               USS01320
+         DC    C'    Command - System Name              '               USS01330
+         DC    X'15'                                                    USS01340
+         DC    C'    Command - System Name              '               USS01350
+         DC    C'    Command - System Name              '               USS01360
+         DC    X'15'                                                    USS01370
+         DC    C'    Command - System Name              '               USS01380
+         DC    C'    Command - System Name              '               USS01390
+         DC    X'15'                                                    USS01400
+         DC    C'    Command - System Name              '               USS01410
+         DC    C'    Command - System Name              '               USS01420
+         DC    X'15'                                                    USS01430
+         DC    C'    Command - System Name              '               USS01440
+         DC    C'    Command - System Name              '               USS01450
+         DC    X'1515'                                                  USS01460
+END010   EQU   *                                                        USS01470
+         EJECT                                                          USS01480
+END      USSEND                                                         USS01490
+         END     ,            END OF ASSEMBLY                           USS01500
+

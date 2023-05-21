@@ -1,0 +1,28 @@
+*/* MODEL/SYS1                                                 USIBMPC
+*/* ------------------------------------------------------------------
+*/*
+*/* MODEL PU/LU DEFINITIONS FOR DYNAMIC CREATION VIA ISTEXCCS           00160001
+*/*
+*/* ------------------------------------------------------------------
+*                                                                       00170001
+MODEL   VBUILD TYPE=MODEL                                               00180001
+*                                                                       00181001
+*/*         LU -------------------------------------------------------  00181001
+*                                                                       00181001
+APPC        LU LOCADDR=2,PACING=0,VPACING=0,SSCPFM=USSSCS               00182001
+*                                                                       00187001
+BADXID      LU LOCADDR=2,PACING=0,VPACING=0,SSCPFM=USSSCS,             -00187101
+               USSTAB=USSX,DLOGMOD=DYNAMIC                              00187602
+*                                                                       00187801
+DISPLAY     LU LOCADDR=2,PACING=0,VPACING=0,SSCPFM=USSSCS,             -00187101
+               USSTAB=USSS,DLOGMOD=DYNAMIC                              00187602
+*                                                                       00190401
+PRINTER     LU LOCADDR=2,PACING=0,VPACING=0,SSCPFM=USSSCS,             -00187101
+               DLOGMOD=P1Q                                              00192701
+*                                                                       00191201
+*/*         PU -------------------------------------------------------  00181001
+*                                                                       00191201
+PC          PU ADDR=C1,ANS=CONT,DISCNT=NO,IRETRY=YES,                  -00191301
+               MAXDATA=1456,MAXOUT=7,                                  -00191701
+               PASSLIM=7,PUTYPE=2                                       00191901
+

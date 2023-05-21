@@ -1,0 +1,119 @@
+         SPACE                                                          USS00010
+USSN     TITLE 'ACF/VTAM USS TABLE FOR NON-SNA DEVICES'                 USS00020
+         SPACE                                                          USS00030
+         PRINT NOGEN                                                    USS00040
+         SPACE                                                          USS00050
+USSN     USSTAB   FORMAT=DYNAMIC                                        USS00060
+         SPACE                                                          USS00070
+L        USSCMD   CMD=L,REP=LOGON,FORMAT=BAL                            USS00080
+         USSPARM  PARM=P1,REP=DATA                                      USS00090
+         USSPARM  PARM=LOGMODE                                          USS00100
+         USSPARM  PARM=APPLID,DEFAULT=VM                                USS00110
+         SPACE                                                          USS00120
+VMESA    USSCMD   CMD=VMESA,REP=LOGON,FORMAT=BAL                        USS00130
+         USSPARM  PARM=P1,REP=DATA                                      USS00140
+         USSPARM  PARM=LOGMODE                                          USS00150
+         USSPARM  PARM=APPLID,DEFAULT=VMESAVSC                          USS00160
+* THE ABOVE LINE IS THE APPLID YOU ARE TRYING TO LOG INTOPS             USS00161
+         SPACE                                                          USS00170
+         USSPARM  PARM=P1,REP=DATA                                      USS00180
+         EJECT                                                          USS00190
+PVM      USSCMD   CMD=PVM,REP=LOGON,FORMAT=BAL                          USS00200
+         USSPARM  PARM=P1,REP=DATA                                      USS00210
+         USSPARM  PARM=LOGMODE                                          USS00220
+         USSPARM  PARM=APPLID,DEFAULT=VMESAPVM                          USS00230
+         SPACE                                                          USS00240
+         USSPARM  PARM=P1,REP=DATA                                      USS00250
+         EJECT                                                          USS00260
+VMHPO    USSCMD   CMD=VMHPO,REP=LOGON,FORMAT=BAL                        USS00270
+         USSPARM  PARM=P1,REP=DATA                                      USS00280
+         USSPARM  PARM=LOGMODE                                          USS00290
+         USSPARM  PARM=APPLID,DEFAULT=HSNET.VMHPOVSC                    USS00300
+         SPACE                                                          USS00310
+         USSPARM  PARM=P1,REP=DATA                                      USS00320
+         EJECT                                                          USS00330
+* LOOP THE ABOVE LINES THERE TO ADD LOGON COMMANDS.                     USS00340
+USSMSG10 USSMSG   MSG=10,BUFFER=(BUF010,SCAN)                           USS01320
+         EJECT                                                          USS01330
+BUF010   DS    0H                                                       USS01340
+         DC    AL2(END010-BUF010)                                       USS01350
+*                                                                       USS01360
+         DC    X'F5C7'                                   Command + WCC  USS01370
+         DC    X'11',AL2(((24-1)*80)+(80-1))                 R=24,C=80  USS01380
+         DC    X'1DE8'                           Protected,Intensified  USS01390
+*                                                                       USS01400
+         DC    X'11',AL2(((01-1)*80)+(01-1))                 R=01,C=01  USS01410
+         DC    C' VM/ESA VTAM ONLINE                     '              USS01420
+         DC    C'       Your terminal: @@@@@@@@@@@@@@NQN'               USS01430
+*                                                                       USS01440
+         DC    X'11',AL2(((03-1)*80)+(01-1))                 R=03,C=01  USS01450
+         DC    C' NETID.SSCPID                           '              USS01460
+         DC    C'            It is now @@@@DATE @@@@TIME'               USS01470
+*                                                                       USS01480
+         DC    X'11',AL2(((06-1)*80)+(01-1))                 R=06,C=01  USS01490
+         DC    C' NETID:    VMESA - VM/ESA 2.4 (this mach'              USS01500
+         DC    C'ine)                                   '               USS01510
+*                                                                       USS01520
+         DC    X'11',AL2(((07-1)*80)+(01-1))                 R=07,C=01  USS01530
+         DC    C'           PVM - VM/Pass-Through Facilit'              USS01540
+         DC    C'y (on this machine)                    '               USS01550
+*                                                                       USS01560
+         DC    X'11',AL2(((08-1)*80)+(01-1))                 R=08,C=01  USS01570
+         DC    C'                                        '              USS01580
+         DC    C'                                       '               USS01590
+*                                                                       USS01600
+         DC    X'11',AL2(((09-1)*80)+(01-1))                 R=09,C=01  USS01610
+         DC    C'           Command - System Name Here   '              USS01620
+         DC    C'           Command - System Name Here  '               USS01630
+*                                                                       USS01640
+         DC    X'11',AL2(((10-1)*80)+(01-1))                 R=10,C=01  USS01650
+         DC    C'           Command - System Name Here   '              USS01660
+         DC    C'           Command - System Name Here  '               USS01670
+*                                                                       USS01680
+         DC    X'11',AL2(((11-1)*80)+(01-1))                 R=11,C=01  USS01690
+         DC    C'           Command - System Name Here   '              USS01700
+         DC    C'           Command - System Name Here  '               USS01710
+*                                                                       USS01720
+         DC    X'11',AL2(((12-1)*80)+(01-1))                 R=12,C=01  USS01730
+         DC    C'           Command - System Name Here   '              USS01740
+         DC    C'           Command - System Name Here  '               USS01750
+*                                                                       USS01760
+         DC    X'11',AL2(((13-1)*80)+(01-1))                 R=13,C=01  USS01770
+         DC    C'           Command - System Name Here   '              USS01780
+         DC    C'           Command - System Name Here  '               USS01790
+*                                                                       USS01800
+         DC    X'11',AL2(((14-1)*80)+(01-1))                 R=14,C=01  USS01810
+         DC    C'           Command - System Name Here   '              USS01820
+         DC    C'           Command - System Name Here  '               USS01830
+*                                                                       USS01840
+         DC    X'11',AL2(((15-1)*80)+(01-1))                 R=15,C=01  USS01850
+         DC    C'           Command - System Name Here   '              USS01860
+         DC    C'           Command - System Name Here  '               USS01870
+*                                                                       USS01880
+         DC    X'11',AL2(((16-1)*80)+(01-1))                 R=16,C=01  USS01890
+         DC    C'           Command - System Name Here   '              USS01900
+         DC    C'           Command - System Name Here  '               USS01910
+*                                                                       USS01920
+         DC    X'11',AL2(((17-1)*80)+(01-1))                 R=17,C=01  USS01930
+         DC    C'           Command - System Name Here   '              USS01940
+         DC    C'           Command - System Name Here  '               USS01950
+*                                                                       USS01960
+         DC    X'11',AL2(((18-1)*80)+(01-1))                 R=18,C=01  USS01970
+         DC    C'           Command - System Name Here   '              USS01980
+         DC    C'           Command - System Name Here  '               USS01990
+*                                                                       USS02000
+         DC    X'11',AL2(((19-1)*80)+(01-1))                 R=19,C=01  USS02010
+         DC    C'           Command - System Name Here   '              USS02020
+         DC    C'           Command - System Name Here  '               USS02030
+*                                                                       USS02040
+         DC    X'11',AL2(((22-1)*80)+(01-1))                 R=22,C=01  USS02050
+         DC    C' Enter UNDIAL to exit from VTAM.        '              USS02060
+*                                                                       USS02070
+         DC    X'11',AL2(((23-1)*80)+(80-1))                 R=23,C=80  USS02080
+         DC    X'1D40'                                     UnProtected  USS02090
+         DC    X'13'                                      InsertCursor  USS02100
+END010   EQU   *                                                        USS02110
+         EJECT                                                          USS02120
+END      USSEND                                                         USS02130
+         END     ,            END OF ASSEMBLY                           USS02140
+
